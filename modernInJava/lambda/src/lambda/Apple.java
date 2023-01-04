@@ -4,7 +4,7 @@ public class Apple {
 
     private Color color;
 
-    private int size;
+    private Integer size;
 
     public Color getColor() {
         return color;
