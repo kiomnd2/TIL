@@ -108,3 +108,27 @@ Function 은 제네릭 형식의 파라미터 T를 인수로 받아 R을 리턴�
 이를 피하기 위해 기본형을 지원하기 위한 함수형 인터페이스를 지원해줍니다. 
 
 ![img_1.png](img/img_1.png)
+
+
+
+### 메서드 참조
+메서드 참조를 이용하면 기존의 메서드 정의를 재활용 해서 람다처럼 전달할 수 있습니다.
+```java
+(Apple a1, Apple a2) -> a1.getSize().compareTo(a2.getSize())
+```
+위 코드는 기존 코드입니다 메서드 참조를 이용할 경우 훨간 간략하게 축약할 수 있습니다.
+```java
+comparing(Apple::getSize)
+```
+메서드 참조를 이용하면 가독성을 훨신 높일 수 있습니다.
+
+
+### 메서드 참조의 유형
+메서드 참조는 세가지로 나눌 수 있습니다
+1. 정적 메서드 참조
+ - 예를 들어 Integer parseInt 메서드는 Integer::parseInt 로 표현이 가능합니다
+2. 다양한 형식의 인스턴스 메서드 참조
+ - String 의 length 메서드는 String::length 로 표현할 수 있습니다.
+3. 기존 객체의 인스턴스 메서드 참조 
+ - Transaction 객체를 할당받은 expensiveTransaction 지역 변수가 있고, transaction 객체에는 getValue 메서드가 있다면, 이를 expensiveTransaction::getValue 라고
+표현할 수 있습니다.
