@@ -111,7 +111,7 @@ Function 은 제네릭 형식의 파라미터 T를 인수로 받아 R을 리턴�
 
 
 
-### 메서드 참조
+## 메서드 참조
 메서드 참조를 이용하면 기존의 메서드 정의를 재활용 해서 람다처럼 전달할 수 있습니다.
 ```java
 (Apple a1, Apple a2) -> a1.getSize().compareTo(a2.getSize())
@@ -132,3 +132,12 @@ comparing(Apple::getSize)
 3. 기존 객체의 인스턴스 메서드 참조 
  - Transaction 객체를 할당받은 expensiveTransaction 지역 변수가 있고, transaction 객체에는 getValue 메서드가 있다면, 이를 expensiveTransaction::getValue 라고
 표현할 수 있습니다.
+
+### 생성자 참조
+ClassName::new 처럼 클래스명과 new 키워드랄 사용해 기존 생성자는 참조를 만들 수 있습니다.
+```java
+1.Supplier<Apple> c1 = Apple::new
+2. Supplier<Apple> c2 = () -> new Apple();
+```
+위 두개의 코드는 같은 기능합니다. 여기서 생성자 참조를 활용해 Apple::new 라는 표현식으로 변경할 수 있습니다.
+
